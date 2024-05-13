@@ -1,10 +1,10 @@
 class Produto {
-    constructor(id, titulo, descricao, preco, miniatura, codigo, estoque) {
+    constructor(id, titulo, descricao, preco, caminhoImagem, codigo, estoque) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
-        this.miniatura = miniatura;
+        this.caminhoImagem = caminhoImagem;
         this.codigo = codigo;
         this.estoque = estoque;
     }
@@ -18,8 +18,8 @@ class GerenciadorProdutos {
 
     // cadastro
 
-    adicionarProduto(titulo, descricao, preco, miniatura, codigo, estoque) {
-        if (!titulo || !descricao || !preco || !miniatura || !codigo || !estoque) {
+    adicionarProduto(titulo, descricao, preco, caminhoImagem, codigo, estoque) {
+        if (!titulo || !descricao || !preco || !caminhoImagem || !codigo || !estoque) {
             console.error("Todos os campos são obrigatórios.");
             return;
         }
@@ -30,7 +30,7 @@ class GerenciadorProdutos {
         }
 
         const id = ++this.ultimoId;
-        const novoProduto = new Produto(id, titulo, descricao, preco, miniatura, codigo, estoque);
+        const novoProduto = new Produto(id, titulo, descricao, preco, caminhoImagem, codigo, estoque);
         this.produtos.push(novoProduto);
         console.log("Produto adicionado com sucesso:", novoProduto);
     }
@@ -52,8 +52,8 @@ class GerenciadorProdutos {
 
 const gerenciador = new GerenciadorProdutos();
 
-gerenciador.adicionarProduto("Produto 1", "Descrição 1", 10, "miniatura1.jpg", "P1", 100);
-gerenciador.adicionarProduto("Produto 2", "Descrição 2", 20, "miniatura2.jpg", "P2", 50);
+gerenciador.adicionarProduto("Produto 1", "Descrição 1", 10, "link.jpg", "P1", 100);
+gerenciador.adicionarProduto("Produto 2", "Descrição 2", 20, "link.jpg", "P2", 50);
 
-console.log(gerenciador.obterProdutoPorId(1)); 
+console.log(gerenciador.obterProdutoPorId(3)); 
 console.log(gerenciador.obterProdutoPorId(3)); 
